@@ -11,7 +11,8 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Cocktail Name</a>
+                        <!-- <a class="nav-link" href="index.html">Cocktail Name</a> -->
+                        <router-link to="/foo">Перейти к Foo</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="ingredient.html">Ingredient</a>
