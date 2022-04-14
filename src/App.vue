@@ -1,26 +1,52 @@
 <template>
   <div class="flexConteiner">
-    <navbar></navbar>
-    <main-content></main-content>
-    <footer-component></footer-component>
+    <!-- <navbar
+      @routing="routing"
+    ></navbar> -->
+    <!-- {{ViewComponent}} -->
+    <!-- <main-content></main-content> -->
+    <!-- <component :is="ViewComponent"></component>
+    <footer-component></footer-component> -->
   </div>
 </template>
 
 <script>
-import Navbar from './navbar/navbar.vue'
-import MainContent from './content/content'
-import FooterComponent from './footer/footer.vue'
+// import Navbar from './navbar/navbar.vue'
+// import MainContent from './pages/content'
+// import FooterComponent from './footer/footer.vue'
+
+// import routes from './routes.js'
 export default {
-  name: 'App',
-  components: {
-    Navbar,
-    MainContent,
-    FooterComponent
-  },
-  created () {
-    console.log(this)
-    document.title = "Cocktail";
-  }
+  // name: 'App',
+  // components: {
+    // Navbar,
+    // MainContent,
+    // FooterComponent
+  // },
+  // created () {
+  //   document.title = "Cocktail";
+  // },
+  //  data() {
+  //    return {
+  //       currentRoute: window.location.pathname
+  //    }
+  // },
+  // computed: {
+  //   ViewComponent () {
+  //     const matchingView = routes[this.currentRoute]
+  //     return matchingView
+  //       ? require('./pages/' + matchingView + '.vue')
+  //       : require('./pages/404.vue')
+  //   }
+  // },
+  // render (h) {
+  //   return h(this.ViewComponent)
+  // },
+  // methods: {
+  //   routing (component) {
+  //     console.log({component})
+  //   }
+  // }
 }
 </script>
 <style lang="scss">
