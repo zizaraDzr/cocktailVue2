@@ -3,23 +3,18 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="jumbotron col-12 col-md-10">
-          <h1 class="text-center">Search Cocktails by Name</h1>
-
+          <h1 class="text-center">Search Cocktails by Alcohol / Non Alcohol</h1>
           <div class="row">
             <div class="col-12">
               <form action="#" id="search-form">
-                <div class="form-group">
-                  <label for="search">Cocktail Name:</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="search"
-                    placeholder="Eg. Margarita"
-                  />
+                <div class="form-group mt-4">
+                  <select class="form-control search-alcohol" id="search">
+                    <option value="Alcoholic">Alcoholic</option>
+                    <option value="Non_Alcoholic">Non Alcoholic</option>
+                  </select>
                 </div>
                 <div class="form-group pt-3">
-                  <input type="hidden" id="type" value="name" />
-
+                  <input type="hidden" id="type" value="alcohol" />
                   <button type="submit" class="btn btn-success d-block">
                     Get Cocktails
                   </button>
@@ -40,7 +35,7 @@
 
 <script>
   export default {
-    name: 'CocktailComponents',
+    name: 'AlcoholComponents',
   }
 </script>
 

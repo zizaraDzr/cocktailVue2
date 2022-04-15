@@ -1,24 +1,23 @@
 <template>
   <div class="flexConteiner">
     <navbar></navbar>
-    <main-content></main-content>
+    <router-view></router-view>
     <footer-component></footer-component>
   </div>
 </template>
 
 <script>
 import Navbar from './navbar/navbar.vue'
-import MainContent from './content/content'
 import FooterComponent from './footer/footer.vue'
+
 export default {
   name: 'App',
   components: {
     Navbar,
-    MainContent,
     FooterComponent
   },
   created () {
-    console.log(this)
+    console.log(this.$router)
     document.title = "Cocktail";
   }
 }
