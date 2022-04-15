@@ -32,7 +32,7 @@
           </ul>
         </div>
         <div class="dropdown">
-          <a href="favorites.html" class="btn btn-danger"> My Favorites </a>
+          <span class="btn btn-danger" @click="$router.push('/Favorites')">My Favorites</span>
         </div>
       </div>
     </nav>
