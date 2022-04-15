@@ -1,5 +1,5 @@
 <template>
-  <div id="content" class="mt-5">
+  <div class="mt-5">
     <div class="container">
       <div class="row justify-content-center">
         <div class="jumbotron col-12 col-md-10">

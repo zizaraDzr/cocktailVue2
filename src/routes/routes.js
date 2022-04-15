@@ -6,7 +6,7 @@ import Category from '@/components/Category.vue'
 import Alcohol from '@/components/Alcohol.vue'
 import Favorites from '@/components/Favorites.vue'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const router = new VueRouter({
     routes: [
@@ -17,4 +17,5 @@ const router = new VueRouter({
         { path: '/Favorites', component: Favorites }
     ]
   })
+
 export default router
