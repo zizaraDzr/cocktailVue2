@@ -7,6 +7,7 @@ import Alcohol from '@/components/Alcohol.vue'
 import Favorites from '@/components/Favorites.vue'
 
 Vue.use(VueRouter)
+
 const router = new VueRouter({
     routes: [
         { path: '/Cocktail', component: Cocktail },
