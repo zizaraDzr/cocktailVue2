@@ -23,22 +23,30 @@
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <span class="nav-link" @click="$router.push('/Cocktail')"
+            <span
+              class="nav-link"
+              @click="$router.push('/Cocktail').catch((err) => {})"
               >Cocktail Name</span
             >
           </li>
           <li class="nav-item">
-            <span class="nav-link" @click="$router.push('/Ingredient')"
+            <span
+              class="nav-link"
+              @click="$router.push('/Ingredient').catch((err) => {})"
               >Ingredient</span
             >
           </li>
           <li class="nav-item">
-            <span class="nav-link" @click="$router.push('/Category')"
+            <span
+              class="nav-link"
+              @click="$router.push('/Category').catch((err) => {})"
               >Category</span
             >
           </li>
           <li class="nav-item">
-            <span class="nav-link" @click="$router.push('/Alcohol')"
+            <span
+              class="nav-link"
+              @click="$router.push('/Alcohol').catch((err) => {})"
               >Alcohol / Non Alcohol</span
             >
           </li>
@@ -71,6 +79,6 @@
     cursor: pointer;
   }
   h1.sitename {
-      cursor: pointer;
+    cursor: pointer;
   }
 </style>
