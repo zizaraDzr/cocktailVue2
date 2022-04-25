@@ -1,7 +1,15 @@
 <template>
   <div class="flexConteiner">
     <navbar></navbar>
-    <router-view></router-view>
+    <div id="content" class="mt-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="jumbotron col-12 col-md-10">
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer-component></footer-component>
   </div>
 </template>
