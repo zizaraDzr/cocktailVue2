@@ -3,10 +3,11 @@
     <h1 class="text-center">{{ heading }}</h1>
     <div class="row">
       <div class="col-12">
-        <form action="#" id="search-form">
+        <form action="#" id="search-form" @submit="getCocktailsByName">
           <div class="form-group">
             <label for="search">Cocktail Name:</label>
             <input
+              v-model="searchCocktails"
               type="text"
               class="form-control"
               id="search"
@@ -16,7 +17,7 @@
           <div class="form-group pt-3">
             <input type="hidden" id="type" value="name" />
 
-            <button type="submit" class="btn btn-success d-block">
+            <button @click="getCocktailsByName" class="btn btn-success d-block">
               Get Cocktails
             </button>
           </div>
@@ -32,6 +33,7 @@
 </template>
 
 <script>
+import API from "@/API/API.js";
   export default {
     name: 'CocktailComponents',
     props: {
@@ -39,6 +41,23 @@
         type: String,
       },
     },
+    data() {
+      return {
+        searchCocktails: 'vodka'
+      }
+    },
+    methods: {
+       async getCocktailsByName (e) {
+         e.preventDefault();
+         if (!this.searchCocktails) {
+           console.log('Ничего не написано')
+           return
+         }
+        let cocktails = new API
+        let { contails } = await cocktails.getCoctailsName(this.searchCocktails)
+        console.log(contails)
+      }
+    }
   }
 </script>
 

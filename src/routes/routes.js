@@ -10,6 +10,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes: [
+    { path: '/', component: Cocktail, alias: '/Cocktail' },
     { path: '/Cocktail', name: 'Cocktail', component: Cocktail, props: { heading: 'Search Cocktails by Name' } },
     { path: '/Ingredient', name: 'Ingredient', component: Ingredient, props: { heading: 'Search Cocktails by Ingredient' } },
     { path: '/Category', name: 'Category', component: Category, props: { heading: 'Search Cocktails by Category' } },
