@@ -1,6 +1,11 @@
 <template>
   <div>
     <h1 class="text-center">{{ heading }}</h1>
+    <ErrorMessages
+      v-if="isShowMessages"
+      :message="message"
+      :isShowMessages.sync="isShowMessages"
+    ></ErrorMessages>
     <div class="row">
       <div class="col-12">
         <form action="#" id="search-form" @submit="getCocktailsByName">
@@ -24,18 +29,33 @@
         </form>
       </div>
 
-      <div class="col-12 mt-5 results-wrapper" style="display: none">
-        <h1 class="text-center">Results: <span id="total"></span></h1>
-        <div id="results" class="mt-5 row"></div>
+      <div class="col-12 mt-5 results-wrapper">
+        <h1 class="text-center">
+          Results: <span id="total">{{ countCocktail }}</span>
+        </h1>
+
+        <div id="results" class="mt-5 row">
+          <Result
+            v-for="item in cocktails"
+            :key="item.idDrink"
+            :cocktail="item"
+          ></Result>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import API from "@/API/API.js";
+  import API from '@/API/API.js'
+  import ErrorMessages from '@/components/ErrorMessages.vue'
+  import Result from '@/components/Result.vue'
   export default {
     name: 'CocktailComponents',
+    components: {
+      ErrorMessages,
+      Result,
+    },
     props: {
       heading: {
         type: String,
@@ -43,21 +63,37 @@ import API from "@/API/API.js";
     },
     data() {
       return {
-        searchCocktails: 'vodka'
+        searchCocktails: 'vodka',
+        isShowMessages: false,
+        message: null,
+        cocktails: [],
       }
     },
+    computed: {
+      countCocktail() {
+        return this.cocktails.length
+      },
+    },
     methods: {
-       async getCocktailsByName (e) {
-         e.preventDefault();
-         if (!this.searchCocktails) {
-           console.log('Ничего не написано')
-           return
-         }
-        let cocktails = new API
+      async getCocktailsByName(e) {
+        this.cocktails = []
+        this.isShowMessages = false
+        e.preventDefault()
+        if (!this.searchCocktails) {
+          this.isShowMessages = true
+          this.message = 'Заполните поле'
+          return
+        }
+        let cocktails = new API()
         let { contails } = await cocktails.getCoctailsName(this.searchCocktails)
-        console.log(contails)
-      }
-    }
+        if (!contails.drinks) {
+          this.isShowMessages = true
+          this.message = 'Ничего не найдено'
+          return
+        }
+        this.cocktails.push(...contails.drinks)
+      },
+    },
   }
 </script>
 

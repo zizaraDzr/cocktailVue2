@@ -4,7 +4,7 @@
       <!-- <a class="navbar-brand text-uppercase" href="index.html"> -->
       <h1
         class="navbar-brand text-uppercase sitename"
-        @click="$router.push('/Cocktail')"
+        @click="$router.push('/Cocktail').catch((err) => {})"
       >
         PERFECT<span>COCKTAIL</span>
       </h1>
